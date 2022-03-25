@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+PruebaModulo.access_esc_escuelas,access_esc_escuelas,PruebaModulo.model_esc_escuelas,,1,1,1,1
+PruebaModulo.access_esc_materias,access_esc_materias,PruebaModulo.model_esc_materias,,1,1,1,1
+PruebaModulo.access_esc_alumnos,access_esc_alumnos,PruebaModulo.model_esc_alumnos,,1,1,1,1

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+        <!-- esc.materias kanban view -->
+        <record id="esc_materias_view_kanban" model="ir.ui.view">
+            <field name="name">esc.materias.view.kanban</field>
+            <field name="model">esc.materias</field>
+            <field name="arch" type="xml">
+                <kanban string="Kanban Description">
+                    <templates>
+                        <t t-name="Kanban-box">
+                            <div>
+                                <div> 
+                                <!-- title -->
+                                    Session Name:
+                                    <field name="name"/>
+                                    <br/>
+                                    Start Sate:
+                                    <field name="start_date"/>
+                                    <br/>
+                                    End Date:
+                                    <field name="end_date"/> 
+                                    <br/>
+                                    duration:
+                                    <field name="duration"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    <!-- esc.materiasform view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">esc.materias.view.form</field>
+        <field name="model">esc.materias</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <!-- <field name="attendees_ids"/>
+                            <field name=" attendees_number"/> -->
+                            
+                        </group>
+                        <group>
+                            <field name="duration"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="teacher_id"/>
+                            <field name="school_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- esc.materias tree view -->
+    <record id="esc_alumnos_view_tree" model="ir.ui.view">
+        <field name="name">esc.materias.view.tree</field>
+        <field name="model">esc.materias</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="code"/>
+                <field name="name"/>
+                <field name="school_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- esc.materias action window -->
+    <record id="esc_materias_action" model="ir.actions.act_window">
+        <field name="name">Materias_Q</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esc.materias</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                No hay Materias Registradas
+            </p><p>
+                Introduzca Una Materia
+            </p>
+        </field>
+    </record>
+
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <!-- <menuitem id="esc_materias_menu_root" name="Materias_Q"/> -->
+    <menuitem id="es_materias_menu_categ" name="Materias" parent="esc_escuelas_menu_root"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="esc_materias_menu_act" name="Registro Materias" parent="es_materias_menu_categ" action="esc_materias_action" />
+</odoo>

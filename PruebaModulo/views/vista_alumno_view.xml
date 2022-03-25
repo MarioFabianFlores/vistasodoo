@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<odoo>
+
+
+
+    <!-- esc.alumnos form view -->
+    <record id="esc_alumos_view_form" model="ir.ui.view">
+        <field name="name">esc.alumnos.view.form</field>
+        <field name="model">esc.alumnos</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="couses_id"/>
+                        </group>
+                        <group>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- esc.alumnos tree view -->
+    <record id="esc_alumnos_view_tree" model="ir.ui.view">
+        <field name="name">esc.alumnos.view.tree</field>
+        <field name="model">esc.alumnos</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="partner_id"/>
+                <field name="age"/>
+                <field name="couses_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- esc.alumnos action window -->
+    <record id="esc_alumnos_action" model="ir.actions.act_window">
+        <field name="name">Alumnos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esc.alumnos</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                No Hay Alumnos Registrados
+            </p><p>
+                Ingrese Un Alumno
+            </p>
+        </field>
+    </record>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="esc_alumnos_menu_categ" name="Alumnos"    parent="esc_escuelas_menu_root" />
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="esc_alumnos_menu_act" name="Registro Alumnos" parent="esc_alumnos_menu_categ" action="esc_alumnos_action" />
+
+
+</odoo>

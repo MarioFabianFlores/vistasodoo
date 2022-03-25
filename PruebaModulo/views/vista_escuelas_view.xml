@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+                   
+    
+    <!-- esc.escuelas form view -->
+    <record id="esc_escuelas_view_form" model="ir.ui.view">
+        <field name="name">esc.escuelas.view.form</field>
+        <field name="model">esc.escuelas</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <group>
+                            <field name="name"/>
+                            <field name="phone_one"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="street"/>
+                            <field name="city"/>
+                            <field name="state"/>
+                            <field name="country"/>
+                            
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- esc.escuelas tree view -->
+    <record id="esc_escuelas_view_tree" model="ir.ui.view">
+        <field name="name">esc.escuelas.view.tree</field>
+        <field name="model">esc.escuelas</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="street"/>
+                <field name="street_number"/>
+                <field name="phone_one"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- esc.escuelas action window -->
+    <record id="esc_escuelas_name_action" model="ir.actions.act_window">
+        <field name="name">Escuelas Qualsys</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esc.escuelas</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                No hay escuelas Registradas
+            </p><p>
+                Ingrese Una Nueva Escuela
+            </p>
+        </field>
+    </record>
+
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="esc_escuelas_menu_root" name="Qualsys Escuelas" />
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="esc_escuela_menu_categ" name="Escuelas" parent="esc_escuelas_menu_root"/>    
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="esc_escuelas_menu_act" name="Registro De Escuela" parent="esc_escuela_menu_categ" action="esc_escuelas_name_action" />
+</odoo>
